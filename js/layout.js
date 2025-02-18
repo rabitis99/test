@@ -1,17 +1,22 @@
-
 //스크롤 기능 작업
+// Define the function in the global scope
 function scrollPage(target) {
-    let position = document.querySelector(target).offsetTop;
-    window.scroll({
-        top: position - 80,
-        behavior: 'smooth'
-    });
+    let element = document.querySelector(target);
+    if (element) {
+        let position = element.offsetTop;
+        window.scroll({
+            top: position - 80,
+            behavior: 'smooth'
+        });
+    } else {
+        console.error("Element not found: " + target);
+    }
 }
-$("#close-btn").click(async function () {
-    $("#modal-card").empty();
-    $("#modal-cardwrap").hide();
-    $("#modal-card").hide();
-});
+// Expose function globally
+window.scrollPage = scrollPage;
+
+
+
 
 
 
