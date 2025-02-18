@@ -12,7 +12,7 @@ function scrollPage(target) {
         console.error("Element not found: " + target);
     }
 }
-// Expose function globally
+// Expose function globally???
 window.scrollPage = scrollPage;
 
 
@@ -23,6 +23,17 @@ window.scrollPage = scrollPage;
 // Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import {
+    FieldPath,
+    documentId,
+    getDocs,
+    orderBy,
+    where,
+    collection,
+    addDoc,
+    query,
+    onSnapshot
+  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
