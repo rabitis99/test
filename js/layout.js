@@ -16,22 +16,10 @@ $("#close-btn").click(async function () {
 
 
 // Firebase SDK 라이브러리 가져오기
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import {
-    FieldPath,
-    documentId,
-    getDocs,
-    orderBy,
-    where,
-    collection,
-    addDoc,
-    query,
-    onSnapshot
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { deleteDoc } from "https://www.gstatic.com/fairebasejs/10.7.1/firebase-firestore.js";
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 
 // Firebase 구성 정보 설정
