@@ -1,0 +1,692 @@
+@charset "utf-8";
+
+/* 공통 레이아웃 */
+.layout-1280 {
+    margin: 0 auto;
+    width: 1280px;
+    max-width: 100%;
+}
+
+/* 테스트 */
+.test-area {
+    height: 500px;
+    border: 1px solid #ddd;
+    text-align: center;
+    line-height: 500px;
+}
+
+/* header */
+.header {
+    padding: 15px 0;
+    box-shadow: 0px 1px 7px 2px #f7f7f7;
+    color: #000;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    z-index: 99999;
+    width: 100%
+}
+
+.header .layout-1280 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.nav .nav-item {
+    display: inline-block;
+    transition: all 0.3s;
+    color: #000;
+    cursor: pointer;
+}
+
+.nav .nav-item+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-item:hover {
+    color: #ff6c00;
+}
+
+/* 방명록 */
+.comments-area {
+    padding: 15px;
+    width: 100%;
+    height: 100px;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    resize: none;
+    box-sizing: border-box;
+}
+
+/* 방명록 수정 및 수정완료 버튼 */
+.modifyBtn {
+    margin: 10px 5px 0 0;
+    width: 94px;
+    height: 41px;
+    background-color: #244ac7;
+    border-radius: 10px;
+    border-color: transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.modifyBtn:hover {
+    background-color: #1336a9;
+}
+
+.confirmBtn {
+    margin: 10px 5px 0 0;
+    display: none;
+    width: 94px;
+    height: 41px;
+    background-color: #262626;
+    border-radius: 10px;
+    border-color: transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.confirmBtn:hover {
+    background-color: #121212;
+}
+
+.cancelBtn {
+    margin: 10px 5px 0 0;
+    display: none;
+    width: 94px;
+    height: 41px;
+    background-color: #999;
+    border-radius: 10px;
+    border-color: transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.cancelBtn:hover {
+    background-color: #8f8f8f;
+}
+
+/* ================================== */
+/* 메인 제목 */
+.title-main {
+    text-align: center;
+    padding: 25px;
+    margin-top: 90px;
+}
+
+#title-main-big {
+    font-size: 100px;
+    margin-bottom: 15px;
+}
+
+#title-main-small {
+    font-size: 30px;
+}
+
+/* 소개 박스들 */
+.team-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.introduce,
+.goal,
+.promise {
+    margin: 5px;
+    width: 350px;
+    height: 400px;
+    background-color: #ffefee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.introduce img,
+.goal img,
+.promise img {
+    width: 90px;
+    height: 90px;
+    border-radius: 30%;
+    object-fit: cover;
+}
+
+.introduce-image,
+.goal-image,
+.promise-image {
+    height: 70px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.introduce-title,
+.goal-title,
+.promise-title {
+    font-size: 23px;
+    font-weight: bold;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.introduce-content,
+.goal-content,
+.promise-content {
+    height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 20px 35px;
+    padding: 10px;
+    line-height: 20px;
+}
+
+/* ================================== */
+/* 프로필 카드 전체 영역 */
+.profileCards {
+    width: 1000px;
+    margin: auto;
+    padding: 30px 0px 30px 0px;
+}
+
+.profileCards>.row {
+    justify-content: center;
+}
+
+/* 각 프로필 카드 높이 */
+.cardEach {
+    height: 450px;
+}
+
+/* 카드 hover 적용 */
+.h-100:hover {
+    background-color: rgb(245, 235, 245);
+    box-shadow: 1px 2px 7px 0px purple;
+}
+
+/* 이미지 변경, 더보기 버튼 전체 영역 */
+.hide {
+    display: none;
+}
+
+.cardBtn1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    margin: 10px 10px auto auto;
+}
+
+/* 이미지 변경, 더보기 버튼 크기 및 글꼴 */
+.imgbtn,
+.morebtn {
+    width: 70px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    background-color: rgb(85, 224, 255);
+    font-size: 13px;
+    color: white;
+
+    border: 0px;
+    border-radius: 5px;
+}
+
+.imgbtn {
+    width: 110px;
+    display: none;
+}
+
+/* 프로필 카드 내 이미지 */
+.h-100>img {
+    border-radius: 20px;
+    border: 1px solid rgb(204, 204, 204);
+    margin: 7px auto 13px auto;
+    width: 300px;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* 프로필 카드 본인 소개 */
+.card-body {
+    margin: 0px 30px 0px 30px;
+    padding: 0px;
+}
+
+.card-text {
+    line-height: 21px;
+}
+
+/* 프로필 카드 아래 url 버튼의 전체 영역 */
+.profileBtn {
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    margin: auto 10px 10px auto;
+}
+
+/* 프로필 카드 아래 url 버튼 크기조절 */
+.profileBtn>button {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 100%;
+}
+
+/* 프로필 카드 아래 url 버튼 이미지 */
+.btnImg {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    margin: 5px;
+}
+
+/* ================================== */
+.guestbook {
+    margin: 50px 50px;
+}
+
+.line {
+    margin: 0 auto 30px auto;
+    padding: 0 20px;
+    width: 1200px;
+    max-width: 100%;
+}
+
+.guestbook-start {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.guestbook-box {
+    padding: 0 30px;
+    height: 260px;
+    background-color: #FFE8A3;
+    border-radius: 5px;
+    border: 1px solid #ecc759c4;
+}
+
+.nickname-pw-box {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    padding-left: 20px;
+    line-height: 42px;
+    padding: 18px 0 10px 0;
+}
+
+.savebtn {
+    width: 94px;
+    height: 41px;
+    background-color: #f24822;
+    border-radius: 10px;
+    border: 1px solid #e23f1b;
+    float: right;
+    margin: 15px 2px 0 0;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 45px;
+}
+
+.box-text {
+    outline: 1px solid lightgray;
+    width: 167px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: left;
+    margin-right: 10px;
+    border: 0;
+    font-size: 15px;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+
+.leave-comments {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 115px;
+    background-color: white;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    resize: none;
+    outline: 1px solid lightgray;
+    border-color: transparent;
+}
+
+.recorded-comments-box {
+    width: 100%;
+    padding: 0 30px;
+}
+
+.name {
+    padding: 10px 9px 5px 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.date {
+    color: grey;
+    font-size: 15px;
+    margin-top: 13px;
+}
+
+.userinfo {
+    padding-bottom: 3px;
+    display: flex;
+    flex-direction: row;
+}
+
+.deletebtn {
+    width: 94px;
+    height: 41px;
+    background-color: #f24822;
+    border-radius: 10px;
+    border-color: transparent;
+    float: right;
+    margin: 10px 5px 0 0;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 45px;
+    border: 1px solid #e23f1b;
+}
+
+.btn-success {
+    width: 94px;
+    height: 41px;
+    background-color: #f24822;
+    border-radius: 10px;
+    border-color: transparent;
+    float: right;
+    margin: 10px 5px 0 0;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 45px;
+}
+
+.deletebtn:hover,
+.savebtn:hover {
+    background-color: #ec3810;
+}
+
+.deletebtn:active,
+.savebtn:active {
+    background-color: #e63916;
+}
+
+.pw-check {
+    width: 167px;
+    height: 42px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 15px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    border: 1px solid lightgrey;
+    margin: 10px 10px 0 0;
+}
+
+.delete {
+    display: flex;
+    flex-direction: row;
+    float: right;
+}
+
+.recorded-comments {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    flex-direction: column;
+}
+
+/* ==================== */
+/* 모달배경 */
+.modal-wrap {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+/* 모달창 */
+.modal-box {
+    display: none;
+    background-color: white;
+    position: fixed;
+    z-index: 2000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 500px;
+    max-width: 600px;
+    height: 60%;
+
+    padding: 40px;
+    margin: 0 auto;
+    overflow: scroll;
+
+    border: 1px solid gray;
+    border-radius: 40px;
+    box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 스크롤 기능만 남기고 스크롤바 지우기 */
+.modal-box:hover,
+.modal-box:focus {
+    -ms-overflow-style: none;
+    overflow: scroll;
+}
+
+.modal-box::-webkit-scrollbar {
+    display: none;
+}
+
+/* 모달창 - 팀원명 */
+.modal-box>h3 {
+    width: 100%;
+    background-color: white;
+
+    padding: 10px;
+
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px 1px rgba(255, 239, 238, 0.8);
+}
+
+/* 모달창 - id값 */
+.modal-idValue {
+    display: none;
+    width: 50px;
+    background-color: green;
+}
+
+/* 닫기 버튼 */
+.modal-box>button {
+    position: fixed;
+    z-index: 3000;
+    top: 10px;
+    right: 10px;
+
+    background-color: white;
+    width: 40px;
+    height: 40px;
+
+    margin: 5px;
+
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.3);
+
+    text-align: center;
+}
+
+/* 모달창 - 닫기 버튼 호버시 색변환 */
+.modal-box>button:hover,
+.modal-box>button:focus {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+/* 모달창 - 프로필 사진, 장점, 협업스타일 포함하는 상자 */
+.modal-profile {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    margin-top: 20px;
+    margin-bottom: 0;
+    gap: 1.4rem;
+}
+
+/* 모달창 - 프로필 사진 */
+.modal-pic {
+    width: 300px;
+    height: 300px;
+    min-width: 50px;
+    min-height: 50px;
+    border: none;
+}
+
+.modal-pic>img {
+    width: 100%;
+    height: 100%;
+
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.3);
+
+    object-fit: cover;
+    border: none;
+    border-radius: 50px;
+}
+
+/* 모달창 - 장점과 협업스타일 */
+.twopoint>div>h4,
+.tmi-info>h4 {
+    background-color: #ffefee;
+    padding: 8px 4px 6px 8px;
+    border-radius: 40px 10px;
+}
+
+/* 모달창 -장점과 협업 스타일 */
+.twopoint {
+    width: 50%;
+    padding: 10px 10px 0px 10px;
+    border-radius: 20px;
+    line-height: 18px;
+}
+
+/* 모달창 - 장점과 협업스타일 ul설정 */
+.twopoint>div>ul {
+    border-radius: 10px;
+    padding: 6px 10px 24px 10px;
+}
+
+/* 모달창 - tmi 정보 */
+.tmi-info {
+    width: 100%;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 모달창 - TMI 헤더 */
+.tmi-info>h4 {
+    width: 100%;
+    /* padding: 8px 4px 6px 8px; */
+    text-align: left;
+    line-height: 18px;
+}
+
+/* 모달창 - TMI 사진, 설명을 담은 상자*/
+.tmi-content {
+    width: 100%;
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    gap: 1rem;
+}
+
+/* TMI 사진 */
+.modal-tmiphoto>img {
+    width: 250px;
+    height: 250px;
+
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+/* TMI - 설명 상자 */
+.tmi-comment {
+    width: 100%;
+
+    border-radius: 20px;
+}
+
+/* tmi - 설명들 */
+.tmi-comment>ul {
+    padding: 10px;
+    border-radius: 20px;
+    line-height: 18px;
+}
+
+.tmi-comment li {
+    padding-bottom: 6px;
+}
