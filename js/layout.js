@@ -249,11 +249,12 @@ $('.deletebtn').on('click', async function (e) {
 
 
 
-// 프로필카드 블로그 타입 alert 띄우기
-$('.velog').click(async function () {
+//  jqery가 아닌 순수 JavaScript로도 사용할 수 있도록 addEventListener 버전
+document.querySelector('.velog').addEventListener('click', function () {
     alert('📘 저는 velog를 사용합니다. 📘');
-})
+});
 
-$('.tistory').click(async function () {
+document.querySelector('.tistory').addEventListener('click', function () {
     alert('📙 저는 tistory를 사용합니다. 📙');
-})
+});
+
