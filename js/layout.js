@@ -30,7 +30,7 @@ import {
     onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { deleteDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { deleteDoc } from "https://www.gstatic.com/fairebasejs/10.7.1/firebase-firestore.js";
 
 
 
@@ -49,127 +49,6 @@ const firebaseConfig = {
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-//const db1 = firebase.firestore();
-
-
-//프로필 카드 -각 카드의 더보기 버튼 클릭 시, 모달배경과 모달 열기
-//멤버별 데이터 가져오기
-//1.모달창을 보여주며(document.style.display = "block")
-$(".cardBtn1").click(async function (event) {
-    //event.currentTarget으로 클릭한 타겟을 인지 시켜주고
-    //클릭해서 event.currentTarget에 들어온 dataset의 id값 가져오기
-    $("#modal-card").empty();
-    const cardId =
-        event.currentTarget.getElementsByClassName("cardId")[0].dataset.id;
-
-    // window.selectedId =
-    document.getElementById("modal-cardwrap").style.display = "block";
-    document.getElementById("modal-card").style.display = "block";
-
-    //더보기 클릭 시, 파이어 베이스 데이터 가져오기
-    //모달창-가져온 모달 컨텐츠들 담기
-    //member 컬렉션 가져오기
-    const memberColl = await getDocs(collection(db, "member"));
-    //2.데이터를 가져오고========================================
-    //가져온 member컬렉션- 문서 꺼내기
-    const memberDocs = memberColl.docs;
-    //문서를 하나씩 훑어보면서 안에 if문 조건에 해당하는 값 도출하기
-    for (let i = 0; i < memberDocs.length; i++) {
-        //문서들
-        let modaldata =
-            memberColl.docs[i]._document.data.value.mapValue.fields;
-
-        //꺼낸 자료 console.log로 어떤 값이 들었는 지 파악하기
-        const id = modaldata["id"].stringValue;
-        const name = modaldata["name"].stringValue;
-        const photo = modaldata["photo"].stringValue;
-        const goodPoint1 = modaldata["goodPoint1"].stringValue;
-        const goodPoint2 = modaldata["goodPoint2"].stringValue;
-        const workStyle = modaldata["workStyle"].stringValue;
-        const tmiPhoto1 = modaldata["tmiPhoto1"].stringValue;
-        const tmiPhoto2 = modaldata["tmiPhoto2"].stringValue;
-        const tmiText1 = modaldata["tmiText1"].stringValue;
-        const tmiText2 = modaldata["tmiText2"].stringValue;
-
-        let data_html = `
-            <h3>${name}</h3>
-            <!-- <div class="modal-idValue">id : ${id}</div> -->
-            <!-- <div class="closebtn" id="close-btn">&times;</div> -->
-            <button name="close" type="button" class="closebtn" id="close-btn">&times;</button>
-  
-            <div class="modal-profile">
-              <!-- 모달창 - 프로필사진 -->
-              <div class="modal-pic">
-                <img
-                  src="${photo}"
-                />
-              </div>
-              <!-- 모달창 - 장점과 협업스타일 -->
-              <div class="twopoint">
-                <!-- 모달창 - 장점 -->
-                <div class="good-point">
-                  <h4>장점</h4>
-                  <ul>
-                    <li>${goodPoint1}</li>
-                    <li>${goodPoint2}</li>
-                  </ul>
-                </div>
-                <!-- 모달창 - 협업스타일 -->
-                <div class="style-point">
-                  <h4>협업스타일</h4>
-                  <ul>
-                    <li>${workStyle}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- 모달창 - TMI -->
-            <div class="tmi-info">
-              <h4>TMI</h4>
-              <div class="tmi-content">
-                <div class="modal-tmiphoto">
-                  <img
-                    src="${tmiPhoto1}"
-                    alt="tmi사진"
-                  />
-                </div>
-                <div class="tmi-comment">
-                  <ul>
-                    <li>${tmiText1}</li>
-                    <li>${tmiText2}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          `;
-
-        //3.클릭한 더보기의 카드 id와 데이터 id가 같으면========
-        //4.모달창의 데이터를 붙여넣는다
-        //id가 다르면 보여주지 말고 같으면 내용물으 보여줘.
-        console.log({ i, cardId, id });
-        if (id === cardId) {
-            $("#modal-card").empty();
-            $("#modal-card").append(data_html);
-        } else {
-            // return;
-        }
-    }
-});
-
-//모달 -닫기버튼 클릭 시, 모달 배경과 모달 닫기
-$(document).on("click", "button[id='close-btn']", function () {
-    document.getElementById("modal-cardwrap").style.display = "none";
-    document.getElementById("modal-card").style.display = "none";
-});
-//모달 - 모달 배경 클릭 시, 모달 배경과 모달 닫기
-$("#modal-cardwrap").click(async function () {
-    // $("#modal-card").empty();
-    document.getElementById("modal-cardwrap").style.display = "none";
-    document.getElementById("modal-card").style.display = "none";
-});
-
-//모달 & 방명록 구분============================================
-
 /* 방명록 남기기 기능 */
 $('#savebtn').click(async function () {
 
