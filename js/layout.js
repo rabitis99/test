@@ -1,3 +1,5 @@
+// ✅ 스크롤 기능 (전역 함수)
+
 window.scrollPage = function (target) {
     let element = document.querySelector(target);
     if (element) {
@@ -29,6 +31,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+ // ✅ 이모티콘 입력 기능
+ const emojiPicker = document.querySelector("emoji-picker");
+ const inputField = document.getElementById("content"); 
+ emojiPicker.addEventListener("emoji-click", (event) => {
+   inputField.value += event.detail.unicode;
+ });
+ 
 // ✅ 방명록 남기기 기능 
 $('#savebtn').click(async function () {
     const nickname = $('#nickname').val().trim();
