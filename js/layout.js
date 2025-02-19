@@ -63,6 +63,7 @@ $('#savebtn').click(async function () {
 
     alert("방명록을 남겼어요.");
     $('#content').val('');
+    location.reload();
 });
 
 // ✅ 방명록 불러오기 (최신순 정렬)
