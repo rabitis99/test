@@ -19,14 +19,14 @@ import {
 
 // ✅ Firebase 설정
 const firebaseConfig = {
-    apiKey: "AIzaSyBFdIOtbPNQSA3Kc1QuQrY4yYeTUO5E9cw",
-    authDomain: "team1-mini-project-6e821.firebaseapp.com",
-    projectId: "team1-mini-project-6e821",
-    storageBucket: "team1-mini-project-6e821.appspot.com",
-    messagingSenderId: "890610614383",
-    appId: "1:890610614383:web:f8c969ada04ee4d31a4d9a",
-    measurementId: "G-J1SET2NDRK",
-};
+    apiKey: "AIzaSyBdTpmbAmUdJPvpFpX0APheKqa6ek0u_L4",
+    authDomain: "sparta-8a7c9.firebaseapp.com",
+    projectId: "sparta-8a7c9",
+    storageBucket: "sparta-8a7c9.firebasestorage.app",
+    messagingSenderId: "398990449652",
+    appId: "1:398990449652:web:9933698cde0d81148777a1",
+    measurementId: "G-0EZRY5MPXF"
+  };
 
 // ✅ Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
