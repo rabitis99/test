@@ -95,7 +95,7 @@ $('#savebtn').click(async function () {
     loadGuestbook();
 });
 
-// ✅ 방명록 불러오기 (최신순 정렬) - 
+// ✅ 방명록 불러오기 (최신순 정렬)  
 async function loadGuestbook() {
     $('#recorded-comments').empty();
 
