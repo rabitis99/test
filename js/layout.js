@@ -173,37 +173,7 @@ $(document).on('click', '.confirmBtn', async function () {
 });
 
 // ✅ 방문횟수 기능
-document.addEventListener('DOMContentLoaded', () => {
-    const visitCountElement = document.getElementById('visitCount');
 
-    function updateVisitCount() {
-        let visits = getCookie('visits');
-        visits = visits ? parseInt(visits) + 1 : 1;
-        setCookie('visits', visits, 365);
-        visitCountElement.textContent = visits;
-    }
-
-    function setCookie(name, value, days) {
-        let expires = '';
-        if (days) {
-            const date = new Date();
-            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-            expires = 'expires=' + date.toUTCString();
-        }
-        document.cookie = name + '=' + value + '; ' + expires + '; path=/';
-    }
-
-    function getCookie(name) {
-        let cookies = document.cookie.split('; ');
-        for (let cookie of cookies) {
-            let [key, value] = cookie.split('=');
-            if (key === name) return value;
-        }
-        return null;
-    }
-
-    updateVisitCount(); 
-});
 
 
 // ✅ 방명록 삭제 기능 
@@ -227,6 +197,11 @@ $(document).on('click', '.deletebtn', async function () {
         alert('비밀번호가 다릅니다.');
     }
 });
+
+const visitCountElement = document.getElementById('visitCount');
+let visits = Number(localStorage.getItem("visits")) || 0;
+localStorage.setItem("visits", ++visits);
+visitCountElement.textContent = visits;
 
 // ✅ 블로그 타입 alert 기능
 $('.velog').click(() => alert('📘 저는 velog를 사용합니다. 📘'));
