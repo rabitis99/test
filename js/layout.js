@@ -12,6 +12,24 @@ window.scrollPage = function (target) {
     }
 };
 
+$(document).ready(function () {
+    $(".nav-item").click(function () {
+        let target = $(this).attr("data-target");
+
+        if (target) {
+            let targetPosition = $(target).offset().top;
+            let windowHeight = $(window).height();
+            let sectionHeight = $(target).outerHeight();
+
+            let scrollTo = targetPosition - (windowHeight / 2) + (sectionHeight / 2);
+
+            $("html, body").animate({ scrollTop: scrollTo }, 800);
+        }
+    });
+});
+
+
+
 //Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, query, orderBy, doc, getDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
@@ -95,7 +113,7 @@ $('#savebtn').click(async function () {
     loadGuestbook();
 });
 
-// ✅ 방명록 불러오기 (최신순 정렬)  
+// ✅ 방명록 불러오기 (최신순 정렬) - 
 async function loadGuestbook() {
     $('#recorded-comments').empty();
 
