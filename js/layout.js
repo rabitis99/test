@@ -31,17 +31,40 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
- // ✅ 이모티콘 입력 기능
- const emojiPicker = document.querySelector("emoji-picker");
- const inputField = document.getElementById("content"); 
- emojiPicker.addEventListener("emoji-click", (event) => {
-   inputField.value += event.detail.unicode;
- });
- 
+// ✅ 이모티콘 입력 기능
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdownButton = document.getElementById("dropdown-emoji");
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const emojiPicker = document.querySelector("emoji-picker");
+    const inputField = document.getElementById("content");
+    // Bootstrap javaScript API 사용, 드롭다운 인스턴스 생성
+    const dropdownInstance = new bootstrap.Dropdown(dropdownButton, { autoClose: false });
+
+    // 드롭다운 버튼을 눌렀을 때만 열리고 닫히도록 설정
+    dropdownButton.addEventListener("click", function (event) {
+        event.stopPropagation();
+        if (dropdownMenu.classList.contains("show")) {
+            dropdownInstance.hide();
+        } else {
+            dropdownInstance.show();
+        }
+    });
+
+    // 클릭된 이모지 입력
+    emojiPicker.addEventListener("emoji-click", (event) => {
+        inputField.value += event.detail.unicode;
+    });
+
+    // 드롭다운 내부 클릭 시 닫히지 않도록 설정
+    dropdownMenu.addEventListener("click", function (event) {
+        event.stopPropagation();
+    });
+});
+
 // ✅ 방명록 남기기 기능 
 $('#savebtn').click(async function () {
     const nickname = $('#nickname').val().trim();
-    const pw = $('#pw').val().trim();  
+    const pw = $('#pw').val().trim();
     const content = $('#content').val().trim();
 
     if (!nickname) {
@@ -78,7 +101,7 @@ async function loadGuestbook() {
 
     const doc_sort = collection(db, "guestbook_contents");
     const sortedComments = query(doc_sort, orderBy("now_date", "desc"));
-    const docs = await getDocs(sortedComments);  
+    const docs = await getDocs(sortedComments);
 
     docs.forEach((doc) => {
         let data = doc.data();
@@ -113,7 +136,7 @@ $(document).on('click', '.modifyBtn', function () {
 // ✅ 수정 완료 
 $(document).on('click', '.confirmBtn', async function () {
     const parent = $(this).closest('.recorded-comments-box');
-    const password = parent.find('.pw-check').val();  
+    const password = parent.find('.pw-check').val();
     const id = parent.find('.docId').val();
     const newContent = parent.find('.comments-area').val();
     const docRef = doc(db, "guestbook_contents", id);
@@ -133,10 +156,44 @@ $(document).on('click', '.confirmBtn', async function () {
     }
 });
 
+// ✅ 방문횟수 기능
+document.addEventListener('DOMContentLoaded', () => {
+    const visitCountElement = document.getElementById('visitCount');
+
+    function updateVisitCount() {
+        let visits = getCookie('visits');
+        visits = visits ? parseInt(visits) + 1 : 1;
+        setCookie('visits', visits, 365);
+        visitCountElement.textContent = visits;
+    }
+
+    function setCookie(name, value, days) {
+        let expires = '';
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+            expires = 'expires=' + date.toUTCString();
+        }
+        document.cookie = name + '=' + value + '; ' + expires + '; path=/';
+    }
+
+    function getCookie(name) {
+        let cookies = document.cookie.split('; ');
+        for (let cookie of cookies) {
+            let [key, value] = cookie.split('=');
+            if (key === name) return value;
+        }
+        return null;
+    }
+
+    updateVisitCount(); 
+});
+
+
 // ✅ 방명록 삭제 기능 
 $(document).on('click', '.deletebtn', async function () {
     const parent = $(this).closest('.recorded-comments-box');
-    const password = parent.find('.pw-check').val();  
+    const password = parent.find('.pw-check').val();
     const id = parent.find('.docId').val();
     const docRef = doc(db, "guestbook_contents", id);
     const docSnap = await getDoc(docRef);
