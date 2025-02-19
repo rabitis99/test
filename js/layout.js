@@ -12,24 +12,6 @@ window.scrollPage = function (target) {
     }
 };
 
-$(document).ready(function () {
-    $(".nav-item").click(function () {
-        let target = $(this).attr("data-target");
-
-        if (target) {
-            let targetPosition = $(target).offset().top;
-            let windowHeight = $(window).height();
-            let sectionHeight = $(target).outerHeight();
-
-            let scrollTo = targetPosition - (windowHeight / 2) + (sectionHeight / 2);
-
-            $("html, body").animate({ scrollTop: scrollTo }, 800);
-        }
-    });
-});
-
-
-
 //Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, query, orderBy, doc, getDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
@@ -110,10 +92,10 @@ $('#savebtn').click(async function () {
 
     alert("방명록을 남겼어요.");
     $('#content').val('');
-    loadGuestbook();
+    window.location.reload()
 });
 
-// ✅ 방명록 불러오기 (최신순 정렬) - 
+// ✅ 방명록 불러오기 (최신순 정렬)  
 async function loadGuestbook() {
     $('#recorded-comments').empty();
 
@@ -168,7 +150,7 @@ $(document).on('click', '.confirmBtn', async function () {
     if (docSnap.exists() && docSnap.data().pw === password) {
         await updateDoc(docRef, { content: newContent });
         alert('수정이 완료되었습니다.');
-        loadGuestbook();
+        window.location.reload()
     } else {
         alert('비밀번호가 다릅니다.');
     }
@@ -224,7 +206,7 @@ $(document).on('click', '.deletebtn', async function () {
     if (docSnap.exists() && docSnap.data().pw === password) {
         await deleteDoc(docRef);
         alert('댓글이 삭제되었습니다.');
-        loadGuestbook();
+        window.location.reload()
     } else {
         alert('비밀번호가 다릅니다.');
     }
@@ -233,8 +215,3 @@ $(document).on('click', '.deletebtn', async function () {
 // ✅ 블로그 타입 alert 기능
 $('.velog').click(() => alert('📘 저는 velog를 사용합니다. 📘'));
 $('.tistory').click(() => alert('📙 저는 tistory를 사용합니다. 📙'));
-
-// ✅ 초기 방명록 데이터 불러오기
-$(document).ready(function () {
-    loadGuestbook();
-});
