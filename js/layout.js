@@ -3,7 +3,7 @@ window.scrollPage = function (target) {
     let element = document.querySelector(target);
     if (element) {
         window.scroll({
-            
+
             top: element.offsetTop - 80,
             behavior: 'smooth'
         });
@@ -11,7 +11,7 @@ window.scrollPage = function (target) {
         console.error("Element not found: " + target);
     }
 };
-
+//아래 코드 구현 안됩니다. 수정부탁드립니다.
 $(document).ready(function () {
     $(".nav-item").click(function () {
         let target = $(this).attr("data-target");
@@ -28,11 +28,19 @@ $(document).ready(function () {
     });
 });
 
-//Firebase SDK 라이브러리 가져오기
+function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        swal("복사되었습니다: " + text);
+    }).catch(err => {
+        console.error("복사 실패:", err);
+        swal("복사에 실패했습니다.");
+    });
+}
+//✅Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, query, orderBy, doc, getDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-//Firebase 설정
+//✅Firebase 설정
 const firebaseConfig = {
     apiKey: "AIzaSyBdTpmbAmUdJPvpFpX0APheKqa6ek0u_L4",
     authDomain: "sparta-8a7c9.firebaseapp.com",
@@ -43,7 +51,7 @@ const firebaseConfig = {
     measurementId: "G-0EZRY5MPXF"
 };
 
-//Firebase 초기화
+//✅Firebase 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -53,10 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownMenu = document.getElementById("dropdown-menu");
     const emojiPicker = document.querySelector("emoji-picker");
     const inputField = document.getElementById("content");
-    // Bootstrap javaScript API 사용, 드롭다운 인스턴스 생성
+    // ✅Bootstrap javaScript API 사용, 드롭다운 인스턴스 생성
     const dropdownInstance = new bootstrap.Dropdown(dropdownButton, { autoClose: false });
 
-    // 드롭다운 버튼을 눌렀을 때만 열리고 닫히도록 설정
+    // ✅드롭다운 버튼을 눌렀을 때만 열리고 닫히도록 설정
     dropdownButton.addEventListener("click", function (event) {
         event.stopPropagation();
         if (dropdownMenu.classList.contains("show")) {
@@ -66,12 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 클릭된 이모지 입력
+    // ✅클릭된 이모지 입력
     emojiPicker.addEventListener("emoji-click", (event) => {
         inputField.value += event.detail.unicode;
     });
 
-    // 드롭다운 내부 클릭 시 닫히지 않도록 설정
+    // ✅드롭다운 내부 클릭 시 닫히지 않도록 설정
     dropdownMenu.addEventListener("click", function (event) {
         event.stopPropagation();
     });
@@ -173,7 +181,10 @@ $(document).on('click', '.confirmBtn', async function () {
 });
 
 // ✅ 방문횟수 기능
-
+const visitCountElement = document.getElementById('visitCount');
+let visits = Number(localStorage.getItem("visits")) || 0;
+localStorage.setItem("visits", ++visits);
+visitCountElement.textContent = visits;
 
 
 // ✅ 방명록 삭제 기능 
@@ -197,11 +208,6 @@ $(document).on('click', '.deletebtn', async function () {
         alert('비밀번호가 다릅니다.');
     }
 });
-
-const visitCountElement = document.getElementById('visitCount');
-let visits = Number(localStorage.getItem("visits")) || 0;
-localStorage.setItem("visits", ++visits);
-visitCountElement.textContent = visits;
 
 // ✅ 블로그 타입 alert 기능
 $('.velog').click(() => alert('📘 저는 velog를 사용합니다. 📘'));
