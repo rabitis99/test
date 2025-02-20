@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
 });
 
-function copyText(text) {
+window.copyTest=function (text) {
     navigator.clipboard.writeText(text).then(() => {
         swal("복사되었습니다: " + text);
     }).catch(err => {
