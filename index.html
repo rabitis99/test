@@ -35,7 +35,7 @@
 
     <!-- ✅ 이모티콘 오픈 소스 -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -43,8 +43,9 @@
     <div class="wrap">
         <header class="header">
             <div class="layout-1280">
-                <h1 class="logo">XVI</h1>
-                <p>이 페이지의 방명자 수:<span id="visitCount">0</span></p> 
+                <h1 class="logo">XVI
+                    <p class="logo2">이 페이지의 방문자 수:<span id="visitCount">0</span></p>
+                </h1>
                 <nav class="nav">
                     <ul>
                         <li class="nav-item" onclick="scrollPage('#box1')">팀 소개</li>
@@ -62,7 +63,7 @@
                 </div>
                 <div class="team-container">
                     <div class="introduce">
-                        <div class="introduce-image"><img src="images/kjm dog.jpg"></div>
+                        <div class="introduce-image"><img src="./images/X.png"></div>
                         <div class="introduce-title">팀 소개</div>
                         <div class="introduce-content">
                             <p>XVI는 로마자로 16이란 뜻이기도 하면서, cross various I로 다양한 유형의 MBTI I들이 서로 협력하는 저희의 모습을 표현한 이름입니다.
@@ -71,35 +72,35 @@
                     </div>
 
                     <div class="goal">
-                        <div class="goal-image"><img src="images/gih dog.jpeg"></div>
+                        <div class="goal-image"><img src="./images/V.png"></div>
                         <div class="goal-title">팀 목표</div>
                         <div class="goal-content">
-                            <p>ㄴ
-                                포기하지 말자 !<br>
-                                피할수 없으면 돌아가자 !<br>
-                                끝까지 완성하자 !
+                            <p>
+                                1.명확한 커뮤니케이션을 통해 협업 효율 극대화<br>
+                                2.목표 달성을 위한 체계적인 계획 및 실행<br>
+                                3.지속적인 개선과 혁신을 통한 성과 향상<br>
+                                4.신뢰와 존중을 바탕으로 한 긍정적인 팀 문화 조성
                             </p>
                         </div>
                     </div>
 
                     <div class="promise">
-                        <div class="promise-image"><img src="images/sjw cat.jpg"></div>
+                        <div class="promise-image"><img src="./images/I.png"></div>
                         <div class="promise-title">우리 팀 약속</div>
                         <div class="promise-content">
                             <p>
-                                - 모르면 물어보기<br>
-                                - 가끔 블로그에 댓글 남겨주기<br>
-                                - 자리 비울때 팀원들에게 알려주기 (채팅도 되고 보이스도 좋을 것
-                                같아요)<br>
-                                - 생리현상은 마이크 잠시 꺼도 됨ㅎㅎ<br>
-                                - 캠은 필수!!
+                                1.모르면 물어보기<br>
+                                2.자리 비울 때 팀원들에게 알려주기<br>
+                                3.생각나면 블로그에 댓글 남겨주기<br>
+                                4.TIL 작성 열심히 하기<br>
+                                5.회의 때엔 지각❌ 마이크✅
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="box2" class="profileCards">
-                <!-- 프로필 카드 6장 시작-->
+                <!-- 프로필 카드 4장 시작-->
                 <div class="profileCards">
                     <div id="profileCards" class="row row-cols-1 row-cols-md-2 g-4">
                         <!-- 프로필 카드 1번 -->
@@ -125,10 +126,12 @@
                                 </div>
                                 <!-- url 버튼 -->
                                 <div class="profileBtn">
-                                    <a href="https://devhippo.tistory.com" class="velog"><img class="btnImg"
+                                    <a href="https://devhippo.tistory.com" target="_blank"><img class="btnImg"
                                             src="./images/icon-tistory.png" alt=""></a>
                                     <a href="https://github.com/crocusia" target="_blank"><img class="btnImg"
                                             src="./images/icon-github.png" alt=""></a>
+                                    <a href="javasrcipt:;" onclick="copyText('kyungsu9914@gmail.com')"><img
+                                            class="btnImg" src="./images/mail.png" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -139,27 +142,27 @@
                                 <div class="cardBtn1">
                                     <div class="cardId hide" data-id="2">id : 2</div>
                                     <button type="button" class="imgbtn">이미지 변경</button>
-                                    <button type="button" class="morebtn">더보기</button>
+                                    <button type="button" class="morebtn"
+                                        onclick="window.open('yiseul_index.html');">더보기</button>
                                 </div>
                                 <!-- 프로필 이미지 -->
-                                <img src="./images/profile-sjw.png" class="card-img-top" alt="..."
-                                    style="display: block">
+                                <img src="./images/yiseul.JPG" class="card-img-top" alt="..." style="display: block">
                                 <!-- 프로필 소개 -->
                                 <div class="card-body" style="padding: 0px">
                                     <h5 class="card-title">이름 : 정이슬</h5>
                                     <p class="card-text">
-                                        안녕하세요. 고양이 두 마리 키우는 프론트엔드 개발자
-                                        서지원입니다.
+                                        안녕하세요. 닥스훈트를 키우고있는 백엔드 개발자 입니다 <br>
+                                        더 보기 란을 누르시면 귀여운 자두를 보실 수 있습니다! 🍓💕
                                     </p>
                                 </div>
                                 <!-- url 버튼 -->
                                 <div class="profileBtn">
-                                    <a href="https://creator7087.tistory.com/" target="_blank"><img class="btnImg"
+                                    <a href="https://bella-jeong.tistory.com/" target="_blank"><img class="btnImg"
                                             src="./images/icon-tistory.png" alt=""></a>
-                                    <a href="javascript:;" class="tistory"><img class="btnImg"
-                                            src="./images/icon-velog.png" alt=""></a>
-                                    <a href="https://github.com/rabitis99" target="_blank"><img class="btnImg"
+                                    <a href="https://github.com/bella0415" target="_blank"><img class="btnImg"
                                             src="./images/icon-github.png" alt=""></a>
+                                    <a href="javasrcipt:;" onclick="copyText('kyungsu9914@gmail.com')"><img
+                                            class="btnImg" src="./images/mail.png" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +183,7 @@
                                 <div class="card-body" style="padding: 0px">
                                     <h5 class="card-title">이름 : 류경선</h5>
                                     <p class="card-text">
-                                        안녕하세요. 백엔드 개발자 목표로 하고있는 류경선입니다
+                                        백엔드 개발자를 목표로 하고있는 류경선 입니다. 잘 부탁드립니다.
                                     </p>
                                 </div>
                                 <!-- url 버튼 -->
@@ -189,6 +192,10 @@
                                             src="./images/icon-tistory.png" alt=""></a>
                                     <a href="https://github.com/RKS-t" target="_blank"><img class="btnImg"
                                             src="./images/icon-github.png" alt=""></a>
+                                    <a href="javasrcipt:;" onclick="copyText('kyungsu9914@gmail.com')"><img
+                                            class="btnImg" src="./images/mail.png" alt=""></a>
+
+
                                 </div>
                             </div>
                         </div>
@@ -203,7 +210,7 @@
                                         onclick="window.open('kyeongsu.html','_blank');">더보기</button>
                                 </div>
                                 <!-- 프로필 이미지 -->
-                                <img src="./images/profile-kjm.jpg" class="card-img-top" alt="..."
+                                <img src="./images/profile-kyeongsu.jpg" class="card-img-top" alt="..."
                                     style="display: block">
                                 <!-- 프로필 소개 -->
                                 <div class="card-body" style="padding: 0px">
@@ -216,10 +223,10 @@
                                 <div class="profileBtn">
                                     <a href="https://creator7087.tistory.com/" target="_blank"><img class="btnImg"
                                             src="./images/icon-tistory.png" alt=""></a>
-                                    <a href="javascript:;" class="tistory"><img class="btnImg"
-                                            src="./images/icon-velog.png" alt=""></a>
                                     <a href="https://github.com/rabitis99" target="_blank"><img class="btnImg"
                                             src="./images/icon-github.png" alt=""></a>
+                                    <a href="javasrcipt:;" onclick="copyText('kyungsu9914@gmail.com')"><img
+                                            class="btnImg" src="./images/mail.png" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -261,13 +268,9 @@
         <div id="recorded-comments" class="recorded-comments">
         </div>
     </div>
-
-    </div>
-    <script type="module" src="./js/layout.js"></script>
-
     
-
-
+    <script type="module" src="./js/layout.js"></script>
+    
 </body>
 
 </html>
