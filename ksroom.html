@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ksroom</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&display=swap');
+
+        * {
+            font-family: "42dot Sans", serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+        }
+
+        body {
+            background-color: lightblue;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .box {
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+
+            min-height: 60vh;
+            width: 1600px;
+
+        }
+
+
+        .myimg {
+            max-width: 100%;
+
+            height: 300px;
+
+            margin-left: 15px;
+
+            border-radius: 8px;
+
+        }
+
+        .col-md-6 {
+            display: flex;
+            align-items: center;
+            line-height: 1.8;
+            gap: 20px;
+
+        }
+
+        .btnbox {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: -20px;
+        }
+
+        h2 {
+            line-height: 2;
+        }
+
+        .popup {
+            position: absolute;
+            top: 50%;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            width: 700px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: NONE;
+            background-color: GRAY;
+            justify-content: center;
+            align-items: center;
+            /* ✅ 초기에는 숨김 */
+        }
+
+
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            width: 600px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .imgbox {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .popimg {
+            width: 120px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .popup-slider {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .popup-item {
+            min-width: 100%;
+            transition: transform 0.3s ease-in-out;
+            display: none;
+        }
+
+        .popup-item.active {
+            display: block;
+        }
+
+        .prev-btn,
+        .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev-btn {
+            left: 10px;
+            border-radius: 4px;
+        }
+
+        .next-btn {
+            right: 10px;
+            border-radius: 4px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#popup").hide();
+
+            $("#openPopup").click(function () {
+                if ($("#popup").css("display") === "none") {
+                    $("#popup").css("display", "flex");
+                } else {
+                    $("#popup").css("display", "none");
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            let currentIndex = 0;
+            const totalItems = $(".popup-item").length;
+
+            function showSlide(index) {
+                $(".popup-item").removeClass("active").eq(index).addClass("active");
+            }
+
+            $(".next-btn").click(function () {
+                currentIndex = (currentIndex + 1) % totalItems;
+                showSlide(currentIndex);
+            });
+
+            $(".prev-btn").click(function () {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                showSlide(currentIndex);
+            });
+            
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="col-md-6">
+            <img src="./images-ksroom/profile_ks2.jpg" class="myimg" alt="">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+                <h2>팀 XVI 팀원</h2>
+                <p>이름 : 류경선
+                    <br>
+                    비전공자지여서 아직 정말 기본적인 것 밖에 모르지만 열심히 해서 원하는 성과를 이루고고 팀원과 함께 잘 협력하며 과제를 수행하겠습니다!
+                    <br>
+                    MBTI : ISFP
+                    <br>
+                    협업스타일 : 최대한 스스로 해보려고 하는 성향이 강하며 협업을 할때는
+                    상대방을 최대한 배려하여 맞춰주려고 하는 스타일 입니다.
+                </p>
+                <div class="btnbox">
+
+                    <button id="openPopup" class="btn btn-outline-light" type="button">TMI</button>
+                </div>
+            </div>
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <div class="popup-slider">
+
+                    <div class="popup-item active">
+                        <h2>TMI 1</h2>
+                        <div class="imgbox">
+                            <img src="data:image/jpeg;base64,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"
+                                class="popimg" alt="">
+                            <p>저는 RPG 게임을 좋아합합니다.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="popup-item">
+                        <h2>TMI 2</h2>
+                        <div class="imgbox">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTexTuttHz37URxPjVDTIvU9mtswf02qkuPKQ&s"
+                                class="popimg" alt="">
+                            <p>저는 뉴에이지 음악을 자주 들어요요!</p>
+                        </div>
+                    </div>
+
+
+                    <div class="popup-item">
+                        <h2>TMI 3</h2>
+                        <div class="imgbox">
+                            <img src="https://t3.ftcdn.net/jpg/07/56/83/92/360_F_756839279_FWX5NijrhIP9I3IUTNC6ZvCS6P0lEieY.jpg"
+                                class="popimg" alt="">
+                            <p>산책하는 것을 좋아합니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+            </div>
+        </div>
+
+
+
+</html>

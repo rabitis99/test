@@ -1,0 +1,82 @@
+<!DOCTYPE html> <!-- 현재 문서가 HTML5임을 명시 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>yiseul_spring_6</title>
+    
+    <!-- Google Fonts 추가 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Gaegu', sans-serif;
+            background-color: #fffaf0;
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #ffa6c9;
+            margin-bottom: 20px;
+        }
+        .guestbook-card {
+            background-color: #fff;
+            border: 1px solid #f3d1d1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+        input, textarea {
+            font-family: 'Gaegu', sans-serif;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #f3d1d1;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #ffa6c9;
+            box-shadow: 0 0 8px rgba(255, 166, 201, 0.5);
+        }
+        button {
+            font-family: 'Gaegu', sans-serif;
+            background-color: #ffa6c9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #ff7f9e;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h2>방명록</h2>
+    <div class="guestbook-card">
+        <!-- 자바스크립트로 반가워용 버튼을 누르면 알람이 뜨게 함 -->
+        <form onsubmit="alert('저도 반갑습니당!'); return false;">
+            <input type="text" name="name" placeholder="이름" required>
+            <textarea name="message" placeholder="메시지" required></textarea>
+            <button type="submit">반가워용</button>
+        </form>
+
+        <!-- 뒤로가기 버튼 -->
+        <button onclick="location.href='yiseul_index.html'">뒤로가기</button>
+    </div>
+    <p>현재는 서버 연결이 없으므로 방명록 작성 후에도 목록에 추가되지 않습니다ㅜ0ㅜ</p>
+</body>
+</html>

@@ -3,7 +3,7 @@ window.scrollPage = function (target) {
     let element = document.querySelector(target);
     if (element) {
         window.scroll({
-
+            
             top: element.offsetTop - 80,
             behavior: 'smooth'
         });
@@ -12,23 +12,9 @@ window.scrollPage = function (target) {
     }
 };
 //아래 코드 구현 안됩니다. 수정부탁드립니다.
-$(document).ready(function () {
-    $(".nav-item").click(function () {
-        let target = $(this).attr("data-target");
 
-        if (target) {
-            let targetPosition = $(target).offset().top;
-            let windowHeight = $(window).height();
-            let sectionHeight = $(target).outerHeight();
 
-            let scrollTo = targetPosition - (windowHeight / 2) + (sectionHeight / 2);
-
-            $("html, body").animate({ scrollTop: scrollTo }, 800);
-        }
-    });
-});
-
-window.copyText=function (text) {
+window.copyText=function(text) {
     navigator.clipboard.writeText(text).then(() => {
         swal("복사되었습니다: " + text);
     }).catch(err => {
@@ -77,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅클릭된 이모지 입력
     emojiPicker.addEventListener("emoji-click", (event) => {
         inputField.value += event.detail.unicode;
+        dropdownInstance.hide();
     });
 
     // ✅드롭다운 내부 클릭 시 닫히지 않도록 설정

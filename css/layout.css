@@ -1,4 +1,9 @@
+/* 한국어 설정 */
 @charset "utf-8";
+
+/* 구글 웹 폰트 적용, reset.css에서 전체 적용 한것들 가져오기 */
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap');
+@import url(reset.css);
 
 /* 공통 레이아웃 */
 .layout-1280 {
@@ -6,6 +11,106 @@
     width: 1280px;
     max-width: 100%;
 }
+body {
+    background: linear-gradient(180deg, #ffeef2, #ffccd5);
+    transition: 0.5s ease;
+    animation: fadeBg 5s infinite alternate;
+    position: relative;
+    overflow: scroll; 
+    /* 스크롤로 설정 안하면 스크롤 안됨 */
+}
+
+/* 배경 색 바뀌는거 */
+@keyframes fadeBg {
+    from { background: linear-gradient(180deg, #ffeef2, #ffccd5); }
+    to { background: linear-gradient(180deg, #ffccd5, #ff99aa); }
+}
+
+/* 헤더 */
+.header {
+    padding: 15px 0;
+    box-shadow: 0px 1px 7px 2px #f7c6d0;
+    background-color: #fff0f5;
+    color: #000;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    z-index: 99999;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+    animation: slideDown 1s ease-out;
+    border-radius: 0 0 20px 20px;
+    
+}
+
+.header:hover {
+    transform: translateY(-3px);
+    background-color: #ffe3eb;
+    
+}
+
+.nav .nav-item {
+    display: inline-block;
+    transition: all 0.3s;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "Gaegu", serif;
+}
+
+.nav .nav-item:hover {
+    color: #ff4081;
+    transform: scale(1.1) rotate(3deg);
+    text-shadow: 1px 1px 5px rgba(255, 64, 129, 0.5);
+    font-family: "Gaegu", serif;
+}
+
+/* 버튼 스타일 */
+.modifyBtn,
+.confirmBtn,
+.cancelBtn,
+.savebtn,
+.deletebtn {
+    background-color: #ff7b9e;
+    transition: all 0.3s;
+    animation: buttonFade 2s infinite alternate;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(255, 64, 129, 0.3);
+}
+
+@keyframes buttonFade {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0.85; transform: scale(1.05); }
+}
+
+/* 버튼 클릭 시 점프 애니메이션 */
+@keyframes buttonJump {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.modifyBtn:hover,
+.confirmBtn:hover,
+.cancelBtn:hover,
+.savebtn:hover,
+.deletebtn:hover {
+    background-color: #ff4081;
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0px 6px 12px rgba(255, 64, 129, 0.5);
+}
+
+.modifyBtn:active,
+.confirmBtn:active,
+.cancelBtn:active,
+.savebtn:active,
+.deletebtn:active {
+    animation: buttonJump 0.3s ease;
+}
+
 
 /* 테스트 */
 .test-area {
@@ -33,6 +138,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.logo2{
+    font-size: 20px; 
 }
 
 .logo {
@@ -71,7 +180,7 @@
     margin: 10px 5px 0 0;
     width: 94px;
     height: 41px;
-    background-color: #244ac7;
+    background-color: #e75480;
     border-radius: 10px;
     border-color: transparent;
     color: white;
@@ -82,7 +191,7 @@
 }
 
 .modifyBtn:hover {
-    background-color: #1336a9;
+    background-color: #F55887;
 }
 
 .confirmBtn {
@@ -123,7 +232,8 @@
     background-color: #8f8f8f;
 }
 
-/* ================================== */
+/* ------------------------------------------------------------------------------- */
+
 /* 메인 제목 */
 .title-main {
     text-align: center;
@@ -158,6 +268,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border-radius: 10px;
 }
 
 .introduce img,
@@ -204,7 +315,7 @@
     line-height: 20px;
 }
 
-/* ================================== */
+/* ----------------------------------------------- */
 /* 프로필 카드 전체 영역 */
 .profileCards {
     width: 1000px;
@@ -223,8 +334,8 @@
 
 /* 카드 hover 적용 */
 .h-100:hover {
-    background-color: rgb(245, 235, 245);
-    box-shadow: 1px 2px 7px 0px purple;
+    background-color: white;
+    box-shadow: 1px 2px 7px 0px #b77b82;
 }
 
 /* 이미지 변경, 더보기 버튼 전체 영역 */
@@ -240,7 +351,7 @@
     margin: 10px 10px auto auto;
 }
 
-/* 이미지 변경, 더보기 버튼 크기 및 글꼴 */
+/* 이미지 변경, 더보기 버튼 크기  */
 .imgbtn,
 .morebtn {
     width: 70px;
@@ -250,10 +361,9 @@
     justify-content: center;
     align-items: center;
     margin-left: 5px;
-    background-color: rgb(85, 224, 255);
+    background-color: #F2827F;
     font-size: 13px;
     color: white;
-
     border: 0px;
     border-radius: 5px;
 }
@@ -328,9 +438,9 @@
 .guestbook-box {
     padding: 0 30px;
     height: 260px;
-    background-color: #FFE8A3;
+    background-color: #F6E1D3;
     border-radius: 5px;
-    border: 1px solid #ecc759c4;
+    border: 1px solid #B5A69C;
 }
 
 .nickname-pw-box {
@@ -345,9 +455,9 @@
 .savebtn {
     width: 94px;
     height: 41px;
-    background-color: #f24822;
+    background-color: #ff007f;
     border-radius: 10px;
-    border: 1px solid #e23f1b;
+    border: 1px solid lightgray;
     float: right;
     margin: 15px 2px 0 0;
     color: white;
@@ -415,7 +525,7 @@
 .deletebtn {
     width: 94px;
     height: 41px;
-    background-color: #f24822;
+    background-color: #ffa6c9;
     border-radius: 10px;
     border-color: transparent;
     float: right;
@@ -427,7 +537,7 @@
     align-items: center;
     justify-content: center;
     line-height: 45px;
-    border: 1px solid #e23f1b;
+    border: 1px solid #ffa6c9;
 }
 
 .btn-success {
@@ -449,12 +559,13 @@
 
 .deletebtn:hover,
 .savebtn:hover {
-    background-color: #ec3810;
+    background-color: #ffbcd9;
+    
 }
 
 .deletebtn:active,
 .savebtn:active {
-    background-color: #e63916;
+    background-color: #ffbcd9;
 }
 
 .pw-check {
@@ -689,4 +800,11 @@
 
 .tmi-comment li {
     padding-bottom: 6px;
+}
+
+footer{
+    background-color: lightgreen;
+    max-width: 400px;
+    margin: 50px,auto;
+    padding: auto;
 }

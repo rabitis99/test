@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/subin-layout.css">
+    <!-- JQuery 라이브러리  -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <title>무한도전 개발자 이수빈</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- 사이드바 -->
+        <div class="sidebar">
+            <div id="profile-img">
+                <img id="profile-pic" src="./images-subin/jobProfile-subin.jpg" alt="Profile Picture">
+            </div>
+            <div id="profile-name">이수빈</div>
+            <div>subinlee0522dev@gmail.com</div>
+            <div id="profile-inform">
+                <div class="profileBtn">
+                    <a href="https://devhippo.tistory.com" target="_blank"><img class="btnImg"
+                            src="./images/icon-tistory.png" alt=""></a>
+                    <a href="https://github.com/crocusia" target="_blank"><img class="btnImg"
+                            src="./images/icon-github.png" alt=""></a>
+                    <a href="" target="_blank"><img class="btnImg" src="./images-subin/icon-notion.png" alt=""></a>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item" data-target="#box1">주요 소개</li>
+                    <li class="nav-item" data-target="#box2">포트폴리오</li>
+                    <br>
+                    <hr><br>
+                    <li class="nav-item" data-target="#box3">TMI</li>
+                </ul>
+            </nav>
+        </div>
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <!-- 주요 소개 -->
+            <div class="content" id="box1">
+                <h1>무한도전 개발자</h1><br>
+                <h3 class="typing" data-text="문제 해결과 개선에 끊임없이 도전하는 주니어 개발자 이수빈입니다."></h3>
+                <br><br>
+                <div class="summary">
+                    <div id="skill">
+                        <h1>Skills</h1>
+                        <hr>
+                        <ul class="skill-stack">
+                            <li>C++</li>
+                            <li>Java</li>
+                            <li>MySQL</li>
+                            <li>Python</li>
+                            <li>OpenGL</li>
+                            <li>CUDA</li>
+                        </ul>
+                    </div>
+                    <div id="experience">
+                        <h1>Experience</h1>
+                        <hr>
+                        <ul class="skill-stack" id="skills">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="box2">
+                <h1>포트폴리오</h1><br><br>
+                <div id="portfolio">
+                </div>
+            </div>
+            <div class="content" id="box3">
+                <h1>TMI</h1>
+                <div class="tmi">
+                    <div id="tmi-item">
+                        <img src="./images-subin/mbti-subin.jpg" alt="MBTI">
+                        <div id="tmi-descreption">몇 년 간의 알바경험으로 사회화 된 I<br>계획 잘 세우는 P(특히 여행!)</div>
+                    </div>
+                    <div id="tmi-item">
+                        <img src="./images-subin/lol.jpg" alt="strengths">
+                        <div id="tmi-descreption">보조에 특화된 아낌없이 주는 나무 성향<br>새로 배우는 걸 두려워하지 않아요<br>아무리 어려워도 끝까지!</div>
+                    </div>
+                    <div id="tmi-item">
+                        <img src="./images-subin/conan.jpeg" alt="hobby">
+                        <div id="tmi-descreption">
+                            취미<br>(스트레스 쌓일 일은 없는 편입니다🥰)<br>
+                            <div id="hobby">
+                                <p id="hobby-title">추리 콘텐츠</p>
+                                <p id="hobby-content">명탐정 코난, NCIS, CSI<br>크라임씬, 여고추리반, 대탈출</p>
+                            </div>
+                            <div id="hobby">
+                                <p id="hobby-title">보드게임</p>
+                                <p id="hobby-content">윙스팬 아줄 코펜하겐<br>추천하고 싶은게 너무 많아요</p>
+                            </div>
+                            <div id="hobby">
+                                <p id="hobby-title">여행</p>
+                                <p id="hobby-content">스위스 강추👍 "자연의 아름다움 MAX"<br>싱가포르 "짧고 굵게 갔다오기 좋은 곳"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./js/subin-layout.js">
+    </script>
+
+</body>
+
+</html>
