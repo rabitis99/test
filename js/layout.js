@@ -103,6 +103,8 @@ $('#savebtn').click(async function () {
 
     alert("방명록을 남겼어요.");
     $('#content').val('');
+    $('#pw').val('');
+    $('#nickname').val('');
     loadGuestbook();
 });
 
