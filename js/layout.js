@@ -72,6 +72,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+async function date() {
+    let now_date = new Date();
+    let datelist = [
+        now_date.getFullYear(),
+        now_date.getMonth() + 1,
+        now_date.getDate(),
+        now_date.getHours().toString().padStart(2, '0'),
+        now_date.getMinutes().toString().padStart(2, '0')
+    ];
+
+    let docData = { nickname, pw, content, datelist, now_date };
+
+    await addDoc(collection(db, "guestbook_contents"), docData);
+    
+}
+
 // ✅ 방명록 남기기 기능 
 $('#savebtn').click(async function () {
     const nickname = $('#nickname').val().trim();
@@ -88,18 +104,7 @@ $('#savebtn').click(async function () {
         return;
     }
 
-    let now_date = new Date();
-    let datelist = [
-        now_date.getFullYear(),
-        now_date.getMonth() + 1,
-        now_date.getDate(),
-        now_date.getHours().toString().padStart(2, '0'),
-        now_date.getMinutes().toString().padStart(2, '0')
-    ];
-
-    let docData = { nickname, pw, content, datelist, now_date };
-
-    await addDoc(collection(db, "guestbook_contents"), docData);
+    date()
 
     alert("방명록을 남겼어요.");
     $('#content').val('');
@@ -163,6 +168,7 @@ $(document).on('click', '.confirmBtn', async function () {
     if (docSnap.exists() && docSnap.data().pw === password) {
         await updateDoc(docRef, { content: newContent });
         alert('수정이 완료되었습니다.');
+        date()
         loadGuestbook();
     } else {
         alert('비밀번호가 다릅니다.');
