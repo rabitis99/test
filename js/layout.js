@@ -131,7 +131,7 @@ async function loadGuestbook() {
                 <textarea class="comments-area" readonly>${data.content}</textarea>
                 <input class="docId" type="hidden" value="${doc.id}">
                 <div class="delete">
-                    <input class="pw-check" type="password" placeholder="비밀번호">  <!-- 🔥 비밀번호 유지 -->
+                    <input class="pw-check" id=re-pw type="password" placeholder="비밀번호">  <!-- 🔥 비밀번호 유지 -->
                     <button type="button" class="deletebtn">삭제</button>
                     <button type="button" class="modifyBtn">수정</button>
                     <button type="button" class="confirmBtn" style="display: none;">수정완료</button>
@@ -165,12 +165,10 @@ $(document).on('click', '.confirmBtn', async function () {
         return;
     }
 
-    if (docRef.exists() && docSnap.data().pw === password) {
-        
+    if (docSnap.exists() && docSnap.data().pw === password) {
         await updateDoc(docRef, { content: newContent, datelist:newdatelist,now_date:newnow_date});
-
         alert('수정이 완료되었습니다.');
-        date()
+        $('#pw').val('비밀번호');
         loadGuestbook();
     } else {
         alert('비밀번호가 다릅니다.');
