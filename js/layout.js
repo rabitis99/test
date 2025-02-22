@@ -157,6 +157,7 @@ $(document).on('click', '.confirmBtn', async function () {
     const id = parent.find('.docId').val();
     const newContent = parent.find('.comments-area').val();
     const docRef = doc(db, "guestbook_contents", id);
+    const docSnap = await getDoc(docRef);
     let {newdatelist,newnow_date}=date();
 
     if (!password) {
@@ -164,7 +165,7 @@ $(document).on('click', '.confirmBtn', async function () {
         return;
     }
 
-    if (docSnap.exists() && docSnap.data().pw === password) {
+    if (docRef.exists() && docSnap.data().pw === password) {
         
         await updateDoc(docRef, { content: newContent, datelist:newdatelist,now_date:newnow_date});
 
