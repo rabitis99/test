@@ -147,7 +147,15 @@ $(document).on('click', '.modifyBtn', function () {
     const parent = $(this).closest('.recorded-comments-box');
     parent.find('.comments-area').removeAttr("readonly").focus();
     parent.find('.modifyBtn, .deletebtn').hide();
-    parent.find('.confirmBtn, .cancelBtn').show();
+    parent.find('.deletebtn.confirmBtn, .cancelBtn').show();
+    swal('수정시작');
+});
+// ✅ 방명록 수정 취소 + 공부
+$(document).on('click', '.cancelBtn', function () {
+    const parent = $(this).closest('.recorded-comments-box');
+    parent.find('.deletebtn.confirmBtn, .cancelBtn').hide();
+    parent.find('.modifyBtn, .deletebtn').show();
+    swal('수정취소');
 });
 
 // ✅ 수정 완료 
@@ -165,12 +173,17 @@ $(document).on('click', '.confirmBtn', async function () {
         return;
     }
 
+    if (newContent===docSnap.content) {
+        swal('내용이 같습니다.');
+    }
+
+
     if (docSnap.exists() && docSnap.data().pw === password) {
         await updateDoc(docRef, { content: newContent, datelist:datelist, now_date:now_date});
-        alert('수정이 완료되었습니다.');
+        swal('수정이 완료되었습니다.');
         loadGuestbook();
     } else {
-        alert('비밀번호가 다릅니다.');
+        swal('비밀번호가 다릅니다.');
     }
 });
 
