@@ -81,8 +81,8 @@ function date() {
         now_date.getHours().toString().padStart(2, '0'),
         now_date.getMinutes().toString().padStart(2, '0')
     ];
-
-    let docData = { nickname, pw, content, datelist, now_date };
+    
+    return datelist;
 }
 
 // ✅ 방명록 남기기 기능 
@@ -102,6 +102,7 @@ $('#savebtn').click(async function () {
     }
 
     date()
+    let docData = { nickname, pw, content, datelist, now_date };
     await addDoc(collection(db, "guestbook_contents"), docData);
 
     alert("방명록을 남겼어요.");
@@ -156,7 +157,7 @@ $(document).on('click', '.confirmBtn', async function () {
     const id = parent.find('.docId').val();
     const newContent = parent.find('.comments-area').val();
     const docRef = doc(db, "guestbook_contents", id);
-    const docSnap = await getDoc(docRef);
+    const newdate = date();
     
 
     if (!password) {
@@ -165,7 +166,9 @@ $(document).on('click', '.confirmBtn', async function () {
     }
 
     if (docSnap.exists() && docSnap.data().pw === password) {
-        await updateDoc(docRef, { content: newContent });
+        
+        await updateDoc(docRef, { content: newContent }, {now_date: newdate });
+
         alert('수정이 완료되었습니다.');
         date()
         loadGuestbook();
