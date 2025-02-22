@@ -146,14 +146,14 @@ async function loadGuestbook() {
 $(document).on('click', '.modifyBtn', function () {
     const parent = $(this).closest('.recorded-comments-box');
     parent.find('.comments-area').removeAttr("readonly").focus();
-    parent.find('.modifyBtn, .deletebtn').hide();
-    parent.find('.deletebtn.,confirmBtn, .cancelBtn').show();
+    parent.find('.modifyBtn , .deletebtn').hide();
+    parent.find('.deletebtn , .confirmBtn , .cancelBtn').show();
     swal('수정시작');
 });
 // ✅ 방명록 수정 취소 + 공부
 $(document).on('click', '.cancelBtn', function () {
     const parent = $(this).closest('.recorded-comments-box');
-    parent.find('.deletebtn.,confirmBtn, .cancelBtn').hide();
+    parent.find('.deletebtn, .confirmBtn , .cancelBtn').hide();
     parent.find('.modifyBtn, .deletebtn').show();
     swal('수정취소');
 });
