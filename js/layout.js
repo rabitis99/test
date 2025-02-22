@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-async function date() {
+function date() {
     let now_date = new Date();
     let datelist = [
         now_date.getFullYear(),
@@ -83,9 +83,6 @@ async function date() {
     ];
 
     let docData = { nickname, pw, content, datelist, now_date };
-
-    await addDoc(collection(db, "guestbook_contents"), docData);
-    
 }
 
 // ✅ 방명록 남기기 기능 
@@ -105,6 +102,7 @@ $('#savebtn').click(async function () {
     }
 
     date()
+    await addDoc(collection(db, "guestbook_contents"), docData);
 
     alert("방명록을 남겼어요.");
     $('#content').val('');
@@ -159,6 +157,7 @@ $(document).on('click', '.confirmBtn', async function () {
     const newContent = parent.find('.comments-area').val();
     const docRef = doc(db, "guestbook_contents", id);
     const docSnap = await getDoc(docRef);
+    
 
     if (!password) {
         alert('비밀번호를 입력해주세요.');
