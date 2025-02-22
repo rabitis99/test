@@ -172,9 +172,10 @@ $(document).on('click', '.confirmBtn', async function () {
         alert('비밀번호를 입력해주세요.');
         return;
     }
-
-    if (newContent===docSnap.content) {
+    //같은 내용이면 내용이 같습니다.//공부
+    if (docSnap.exists() && newContent === docSnap.data().content) {
         swal('내용이 같습니다.');
+        return; 
     }
 
 
