@@ -158,7 +158,7 @@ $(document).on('click', '.confirmBtn', async function () {
     const newContent = parent.find('.comments-area').val();
     const docRef = doc(db, "guestbook_contents", id);
     const docSnap = await getDoc(docRef);
-    let {newdatelist,newnow_date}=date();
+    let {datelist,now_date}=date();
 
     if (!password) {
         alert('비밀번호를 입력해주세요.');
@@ -166,7 +166,7 @@ $(document).on('click', '.confirmBtn', async function () {
     }
 
     if (docSnap.exists() && docSnap.data().pw === password) {
-        await updateDoc(docRef, { content: newContent, datelist:newdatelist,now_date:newnow_date});
+        await updateDoc(docRef, { content: newContent, datelist:datelist, now_date:now_date});
         alert('수정이 완료되었습니다.');
         loadGuestbook();
     } else {
@@ -201,6 +201,7 @@ $(document).on('click', '.deletebtn', async function () {
     } else {
         alert('비밀번호가 다릅니다.');
     }
+
 });
 
 // ✅ 블로그 타입 alert 기능
